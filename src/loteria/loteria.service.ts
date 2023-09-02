@@ -61,7 +61,9 @@ export class LoteriaService {
 
   async findAll() {
     try {
-      return await this.tablaRepository.find();
+      return await this.tablaRepository.find({
+        relations: ['cartas'],
+      });
     } catch (error) {
       console.log(error);
     }
